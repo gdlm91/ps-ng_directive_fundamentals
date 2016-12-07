@@ -1,0 +1,22 @@
+{
+  "name": "ps-ng_directive_fundamentals",
+  "homepage": "https://github.com/gdlm91/ps-ng_directive_fundamentals",
+  "authors": [
+    "Gerardo Leal <gerard.leal91@gmail.com>"
+  ],
+  "description": "",
+  "main": "",
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "^3.1.1",
+    "angular": "1.4",
+    "bootstrap": "^3.3.7"
+  }
+}
