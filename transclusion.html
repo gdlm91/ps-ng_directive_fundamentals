@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <title>Pluralsight Angular Directives Fundamentals</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+    <style>
+        .highlight h4 {
+            color: red;
+        }
+    </style>
+</head>
+
+<body ng-controller="mainCtrl" class="container" style="padding-bottom: 50px;">
+
+    <h1>Pluralsight Angular Directives Fundamentals</h1>
+    <h2>Transclusion</h2>
+
+    <div>
+        <h3>Display Box</h3>
+        <display-box>
+            <p>This is content Inside</p>
+            <ul>
+                <li>Item 1</li>
+                <li>Item 2</li>
+            </ul>
+            <p>{{displayText}}</p>
+        </display-box>
+    </div>
+
+    <div>
+        <h3>Questions</h3>
+
+        <b>Binding Outside Transclude directive: </b> {{answers.q1}}
+        <br><br>
+
+        <my-question q="Question 1">
+            <input type="text" ng-model="answers.q1">
+        </my-question>
+
+        <my-question q="Question 2">
+            <input type="radio" ng-value="true" ng-model="answers.q2"> Yes <br>
+            <input type="radio" ng-value="false" ng-model="answers.q2"> No
+        </my-question>
+    </div>
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="transclusion/script.js"></script>
+</body>
+
+</html>

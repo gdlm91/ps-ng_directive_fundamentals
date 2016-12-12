@@ -1,140 +1,27 @@
 <!DOCTYPE html>
-<html lang="en" ng-app="app">
+<html lang="en">
     <head>
         <title>Pluralsight Angular Directives Fundamentals</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
-        <link rel="stylesheet" href="style.css">
-
-        <style>
-            .highlight h4 {
-                color: red;
-            }
-        </style>
-
     </head>
-    <body ng-controller="mainCtrl" class="container" style="padding-bottom: 50px;">
-
+    <body class="container" style="padding-bottom: 50px;">
         <h1>Pluralsight Angular Directives Fundamentals</h1>
 
-        <h2>Component Directives</h2>
-
-        <person-info-card person="person1" collapsed="false"></person-info-card>
-        <person-info-card person="person2" collapsed="true"></person-info-card>
-
-        <droid-info-card droid="droid1" collapsed="false" ></droid-info-card>
-
-        <h2>Decorator Directive</h2>
-
-        <div>
-            <h3>Basic Decorator Directive for HTML5 video</h3>
-            <p>This video support Spacebar Keypress Event to Start/Pause the video...</p>
-
-            <video id="vid" width="100%" controls spacebar-support event-pause="handlePause(evt)" preload="none" style="margin-bottom: 15px; max-width: 600px;" poster="http://media.w3.org/2010/05/sintel/poster.png">
-                <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
-                <source src="http://media.w3.org/2010/05/sintel/trailer.webm5" type="video/webm">
-                <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">
-            </video>
-
-            <b>Events from Video:</b>
-            <div ng-repeat="message in messages">{{message.text}}</div>
-        </div>
-
-        <div>
-            <h3 my-click="handleClick(data)" style="cursor: pointer">My Custom ng-click. Click me!</h3>
-            <p>{{data.message}}</p>
-        </div>
-
-        <div>
-            <h3>Business-Specific Directive</h3>
-            <p>Click the Well to change it's color:</p>
-            <user-title user="person1" style="cursor: pointer"></user-title>
-        </div>
-
-        <div>
-            <h3>Watching Attr</h3>
-            <p>Use the Input to set Scale to the Text</p>
-            <div font-scale="size">This text will Scale by {{size}}%</div>
-            <input type="text" ng-model="size">
-        </div>
-
-        <h2>Transclusion</h2>
-
-        <div>
-            <h3>Display Box</h3>
-            <display-box>
-                <p>This is content Inside</p>
-                <ul>
-                    <li>Item 1</li>
-                    <li>Item 2</li>
-                </ul>
-                <p>{{displayText}}</p>
-            </display-box>
-        </div>
-
-        <div>
-            <h3>Questions</h3>
-
-            <b>Binding Outside Transclude directive: </b> {{answers.q1}}
-            <br><br>
-
-            <my-question q="Question 1">
-                <input type="text" ng-model="answers.q1">
-            </my-question>
-
-            <my-question q="Question 2">
-                <input type="radio" ng-value="true" ng-model="answers.q2"> Yes <br>
-                <input type="radio" ng-value="false" ng-model="answers.q2"> No
-            </my-question>
-        </div>
-
-        <h2>Structural Directives</h2>
-
-        <div>
-            <h3>Transclude Function</h3>
-            <div my-transclusion>
-                <div ng-repeat="item in items">{{item}}</div>
-            </div>
-        </div>
-
-        <div>
-            <h3>Lazy Load Directive</h3>
-            <button type="button" class="btn btn-primary" ng-click="showit = true">Show Content</button>
-            <div lazy-loading="showit" ng-repeat="item in items">
-                {{item}}
-            </div>
-        </div>
-
-        <div>
-            <h3>My Repeat</h3>
-
-            <button class="btn btn-primary" ng-click="collectionAdd()">Add Item</button>
-            <button class="btn btn-danger" ng-click="collectionRemove()">Remove Last Item</button>
-            <br><br>
-
-            <div my-repeat="item in collection">
-                <b>Name: </b> <span>{{item.name}}</span>
-            </div>
-            <hr>
-        </div>
-
-        <div>
-            <h3>Item Repeat</h3>
-
-            <button class="btn btn-primary" ng-click="collectionAdd()">Add Item</button>
-            <button class="btn btn-danger" ng-click="collectionRemove()">Remove Last Item</button>
-            <br><br>
-
-            <div item-repeat="item in collection">
-                <b>Description: </b> <span>{{item.description}}</span>
-            </div>
-            <hr>
-        </div>
-    
-        <script src="bower_components/jquery/dist/jquery.min.js"></script>
-        <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
-        <script src="bower_components/angular/angular.min.js"></script>
-        <script src="script.js"></script>
+        <ul class="nav nav-pills nav-stacked">
+            <li>
+                <a href="/component.html" >Component Directive</a>
+            </li>
+            <li>
+                <a href="/decorator.html" >Decorator Directive</a>
+            </li>
+            <li>
+                <a href="/transclusion.html" >Transclusion</a>
+            </li>
+            <li>
+                <a href="/structural.html" >Structural Directive</a>
+            </li>
+        </ul>
     </body>
 </html>
