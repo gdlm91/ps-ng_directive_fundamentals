@@ -1,17 +1,28 @@
-Name: {{ user.name }}
+<div class="panel panel-primary">
 
-<br><br>
-
-<div ng-show="!!user.address"> Address: <br>
-    {{user.address.street}} <br>
-    {{user.address.city}} <br>
-    {{user.address.planet}} <br>
-</div>
-
-<br>
-
-<div>Friends:
-    <div ng-repeat="friend in user.friends">
-        {{friend}}
+    <div class="panel-heading" ng-click="collapse()" style="cursor:pointer">
+        {{ user.name }}
     </div>
+
+    <div class="panel-body" ng-hide="collapsed">
+        
+        <address></address>
+
+        <h4>Friends:</h4>
+        <ul>
+            <li ng-repeat="friend in user.friends">
+                {{friend}}
+                <remove-friend method="removeFriend(friend)"></remove-friend>
+            </li>
+        </ul>
+
+        <br>
+
+        <div ng-show="!!user.rank">
+            <b>Rank: </b> {{user.rank}}
+        </div>
+
+        <button type="button" class="btn btn-success" ng-click="knightUser(user)" ng-show="!user.rank">Knight User</button>
+    </div>
+
 </div>
