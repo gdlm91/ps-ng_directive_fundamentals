@@ -6,13 +6,57 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
         <link rel="stylesheet" href="style.css">
+
+        <style>
+            .highlight h4 {
+                color: red;
+            }
+        </style>
+
     </head>
-    <body ng-controller="mainCtrl" class="container">
+    <body ng-controller="mainCtrl" class="container" style="padding-bottom: 50px;">
 
-        <h2>Pluralsight Angular Directives Fundamentals</h2>
+        <h1>Pluralsight Angular Directives Fundamentals</h1>
 
-        <user-info-card user="user1" collapsed="true"></user-info-card>
-        <user-info-card user="user2"></user-info-card>
+        <h2>Component Directives</h2>
+
+        <user-info-card user="user1" collapsed="false"></user-info-card>
+        <user-info-card user="user2" collapsed="true"></user-info-card>
+
+        <h2>Decorator Directive</h2>
+
+        <div>
+            <h3>Basic Decorator Directive for HTML5 video</h3>
+            <p>This video support Spacebar Keypress Event to Start/Pause the video...</p>
+
+            <video id="vid" width="100%" controls spacebar-support event-pause="handlePause(evt)" preload="none" style="margin-bottom: 15px; max-width: 600px;" poster="http://media.w3.org/2010/05/sintel/poster.png">
+                <source src="http://media.w3.org/2010/05/sintel/trailer.mp4" type="video/mp4">
+                <source src="http://media.w3.org/2010/05/sintel/trailer.webm5" type="video/webm">
+                <source src="http://media.w3.org/2010/05/sintel/trailer.ogv" type="video/ogg">
+            </video>
+
+            <b>Events from Video:</b>
+            <div ng-repeat="message in messages">{{message.text}}</div>
+        </div>
+
+
+        <div>
+            <h3 my-click="handleClick(data)" style="cursor: pointer">My Custom ng-click. Click me!</h3>
+            <p>{{data.message}}</p>
+        </div>
+
+        <div>
+            <h3>Business-Specific Directive</h3>
+            <p>Click the Well to change it's color:</p>
+            <user-title user="user1" style="cursor: pointer"></user-title>
+        </div>
+
+        <div>
+            <h3>Watching Attr</h3>
+            <p>Use the Input to set Scale to the Text</p>
+            <div font-scale="size">This text will Scale by {{size}}%</div>
+            <input type="text" ng-model="size">
+        </div>
     
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>

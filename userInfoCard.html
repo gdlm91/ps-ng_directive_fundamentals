@@ -1,4 +1,4 @@
-<div class="panel panel-primary">
+<div class="panel" state-display="user.state panel-primary panel-warning panel-danger">
 
     <div class="panel-heading" ng-click="collapse()" style="cursor:pointer">
         {{ user.name }}
@@ -23,6 +23,8 @@
         </div>
 
         <button type="button" class="btn btn-success" ng-click="knightUser(user)" ng-show="!user.rank">Knight User</button>
+
+        <button class="btn btn-default" ng-click="nextState()">Next State</button>
     </div>
 
 </div>
