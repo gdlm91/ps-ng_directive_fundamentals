@@ -1,6 +1,6 @@
-<div ng-show="!!user.address">
-    <h4 ng-click="collapse()">Address:</h4>
-    <p ng-hide="collapsed">{{user.address.street}}</p>
-    <p ng-hide="collapsed">{{user.address.city}}</p>
-    <p>{{user.address.planet}} <span ng-show="collapsed">...</span></p>
+<div ng-show="!!person.address">
+    <h4 ng-click="collapse()" style="cursor: pointer">Address:</h4>
+    <p ng-hide="collapsed">{{person.address.street}}</p>
+    <p ng-hide="collapsed">{{person.address.city}}</p>
+    <p>{{person.address.planet}} <span ng-show="collapsed">...</span></p>
 </div>

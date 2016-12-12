@@ -1,0 +1,10 @@
+<div class="panel" state-display="state panel-primary panel-warning panel-danger">
+
+    <div class="panel-heading" ng-click="collapse()" style="cursor:pointer">
+        {{ name }}
+        <button class="btn btn-default btn-xs" ng-click="nextState($event)" style="float: right">Next State</button>
+    </div>
+
+    <div class="panel-body" ng-hide="collapsed" ng-transclude></div>
+
+</div>

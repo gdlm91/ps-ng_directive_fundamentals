@@ -5,7 +5,7 @@
 
         .controller('mainCtrl', function ($scope) {
 
-            $scope.user1 = {
+            $scope.person1 = {
                 name: 'Luke Skywalker',
                 address: {
                     street: 'PO Box 123',
@@ -17,7 +17,7 @@
                 selected: false
             }
 
-            $scope.user2 = {
+            $scope.person2 = {
                 name: 'Han Solo',
                 address: {
                     street: 'PO Box 123',
@@ -26,6 +26,16 @@
                 },
                 friends: ['Luke', 'Leia', 'Chewbacca'],
                 state: 1
+            }
+
+            $scope.droid1 = {
+                name: 'R2-D2',
+                specifications: {
+                    manufacturer: 'Industrial Automation',
+                    type: 'Astromech',
+                    productLine: 'R2 series'
+                },
+                state: 2
             }
 
             $scope.messages = [];
@@ -44,37 +54,73 @@
 
             $scope.size = 100;
 
+            $scope.displayText = "Thi is a message for the Display Box";
+
+            $scope.answers = {
+                q1: "Answer 1 Default"
+            }
+
         })
 
-        .directive('userInfoCard', function () {
+        .directive('personInfoCard', function () {
             return {
-                templateUrl: 'userInfoCard.html',
+                templateUrl: 'personInfoCard.html',
                 restrinc: 'E',
                 scope: {
-                    user: '=',
+                    person: '=',
                     initialCollapsed: '@?collapsed'
                 },
                 controller: function ($scope) {
-                    $scope.collapsed = ($scope.initialCollapsed === 'true');
-
-                    $scope.knightUser = function (user) {
-                        user.rank = 'Knight';
+                    $scope.knightperson = function (person) {
+                        person.rank = 'Knight';
                     }
 
+                    $scope.removeFriend = function (friend) {
+                        var idx = $scope.person.friends.indexOf(friend);
+                        if (idx > -1) {
+                            $scope.person.friends.splice(idx, 1);
+                        }
+                    }
+                }
+            }
+        })
+
+        .directive('droidInfoCard', function () {
+            return {
+                templateUrl: 'droidInfoCard.html',
+                restrinc: 'E',
+                scope: {
+                    droid: '=',
+                    initialCollapsed: '@?collapsed'
+                },
+                controller: function ($scope) {
+                    
+                }
+            }
+        })
+
+        .directive('userPanel', function() {
+            return {
+                restrict: 'E',
+                transclude: true,
+                templateUrl: 'userPanel.html',
+                scope: {
+                    name: '@',
+                    state: '=',
+                    initialCollapsed: '@collapsed'
+                },
+                controller: function($scope) {
+                    $scope.collapsed = ($scope.initialCollapsed === 'true');
+                    
                     $scope.collapse = function () {
                         $scope.collapsed = !$scope.collapsed;
                     }
 
-                    $scope.removeFriend = function (friend) {
-                        var idx = $scope.user.friends.indexOf(friend);
-                        if (idx > -1) {
-                            $scope.user.friends.splice(idx, 1);
-                        }
-                    }
-
-                    $scope.nextState = function () {
-                        $scope.user.state++;
-                        $scope.user.state = $scope.user.state % 3;
+                    $scope.nextState = function (evt) {
+                        evt.stopPropagation();
+                        evt.preventDefault();
+                        $scope.state++;
+                        $scope.state = $scope.state % 3;
                     }
                 }
             }
@@ -132,6 +178,9 @@
                 }
             }
         })
+
+        /** Decorative */
+        ////////////////
 
         .directive('spacebarSupport', function () {
             return {
@@ -208,6 +257,36 @@
                     scope.$watch(attrs['fontScale'], function (newVal) {
                         elm.css('font-size', newVal + '%');
                     })
+                }
+            }
+        })
+
+        /** Transclusion */
+        //////////////////
+
+        .directive('displayBox', function() {
+            return {
+                restrict: 'E',
+                templateUrl: 'displayBox.html',
+                controller: function($scope) {
+                    $scope.hidden = false;
+                    $scope.close = function() {
+                        $scope.hidden = true;
+                    }
+                    $scope.displayText = "Hijacking the Message !!!";
+                },
+                transclude: true,
+                scope: true
+            }
+        })
+
+        .directive('myQuestion', function() {
+            return {
+                restrict: 'E',
+                transclude: true,
+                templateUrl: "myQuestion.html",
+                scope: {
+                    questionText: '@q'
                 }
             }
         })

@@ -20,8 +20,10 @@
 
         <h2>Component Directives</h2>
 
-        <user-info-card user="user1" collapsed="false"></user-info-card>
-        <user-info-card user="user2" collapsed="true"></user-info-card>
+        <person-info-card person="person1" collapsed="false"></person-info-card>
+        <person-info-card person="person2" collapsed="true"></person-info-card>
+
+        <droid-info-card droid="droid1" collapsed="false" ></droid-info-card>
 
         <h2>Decorator Directive</h2>
 
@@ -56,6 +58,36 @@
             <p>Use the Input to set Scale to the Text</p>
             <div font-scale="size">This text will Scale by {{size}}%</div>
             <input type="text" ng-model="size">
+        </div>
+
+        <h2>Transclusion</h2>
+
+        <div>
+            <h3>Display Box</h3>
+            <display-box>
+                <p>This is content Inside</p>
+                <ul>
+                    <li>Item 1</li>
+                    <li>Item 2</li>
+                </ul>
+                <p>{{displayText}}</p>
+            </display-box>
+        </div>
+
+        <div>
+            <h3>Questions</h3>
+
+            <b>Binding Outside Transclude directive: </b> {{answers.q1}}
+            <br><br>
+
+            <my-question q="Question 1">
+                <input type="text" ng-model="answers.q1">
+            </my-question>
+
+            <my-question q="Question 2">
+                <input type="radio" ng-value="true" ng-model="answers.q2"> Yes <br>
+                <input type="radio" ng-value="false" ng-model="answers.q2"> No
+            </my-question>
         </div>
     
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
