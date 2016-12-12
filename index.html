@@ -88,6 +88,49 @@
                 <input type="radio" ng-value="false" ng-model="answers.q2"> No
             </my-question>
         </div>
+
+        <h2>Structural Directives</h2>
+
+        <div>
+            <h3>Transclude Function</h3>
+            <div my-transclusion>
+                <div ng-repeat="item in items">{{item}}</div>
+            </div>
+        </div>
+
+        <div>
+            <h3>Lazy Load Directive</h3>
+            <button type="button" class="btn btn-primary" ng-click="showit = true">Show Content</button>
+            <div lazy-loading="showit" ng-repeat="item in items">
+                {{item}}
+            </div>
+        </div>
+
+        <div>
+            <h3>My Repeat</h3>
+
+            <button class="btn btn-primary" ng-click="collectionAdd()">Add Item</button>
+            <button class="btn btn-danger" ng-click="collectionRemove()">Remove Last Item</button>
+            <br><br>
+
+            <div my-repeat="item in collection">
+                <b>Name: </b> <span>{{item.name}}</span>
+            </div>
+            <hr>
+        </div>
+
+        <div>
+            <h3>Item Repeat</h3>
+
+            <button class="btn btn-primary" ng-click="collectionAdd()">Add Item</button>
+            <button class="btn btn-danger" ng-click="collectionRemove()">Remove Last Item</button>
+            <br><br>
+
+            <div item-repeat="item in collection">
+                <b>Description: </b> <span>{{item.description}}</span>
+            </div>
+            <hr>
+        </div>
     
         <script src="bower_components/jquery/dist/jquery.min.js"></script>
         <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
