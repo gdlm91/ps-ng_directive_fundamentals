@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+
+<head>
+    <title>Pluralsight Angular Directives Fundamentals</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.min.css">
+
+</head>
+
+<body ng-controller="mainCtrl" class="container" style="padding-bottom: 50px;">
+
+    <h1>Pluralsight Angular Directives Fundamentals</h1>
+    <h2>Controller and Nested Directives</h2>
+
+    <h3>Master & Apprentice (Pre & Post Link)</h3>
+    <p><i>Check Console for Master / Apprentice sharing master's name using PRE and POST link</i></p>
+    
+    <master>
+        <apprentice></apprentice>
+    </master>
+
+    <h3>Master & Apprentice (Requiring Controllers)</h3>
+    <master-two>
+        <apprentice-two></apprentice-two>
+    </master-two>
+
+    <h3>Super Tab Directive</h3>
+    <super-tab>
+        <super-pane title="First Title">
+            <h4>First Content</h4>
+        </super-pane>
+        <super-pane title="Second Title">
+            <h4>Second Content</h4>
+        </super-pane>
+        <super-pane title="Third Title">
+            <h4>Third Content</h4>
+        </super-pane>
+
+    </super-tab>
+
+
+    <script src="bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.min.js"></script>
+    <script src="bower_components/angular/angular.min.js"></script>
+    <script src="controller_nested/script.js"></script>
+</body>
+
+</html>

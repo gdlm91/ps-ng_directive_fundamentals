@@ -1,0 +1,7 @@
+<ul class="nav nav-tabs">
+    <li ng-repeat="pane in vm.panes" ng-class="{active: pane.selected}">
+        <a href="" ng-click="vm.select(pane)">{{pane.title}}</a>
+    </li>
+</ul>
+
+<div class="tab-content" ng-transclude></div>
